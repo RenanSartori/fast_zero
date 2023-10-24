@@ -66,7 +66,7 @@ def delet_user(
     current_user: CurrentUser,
 ):
     if current_user.id != user_id:
-        raise HTTPException(status_code=404, detail='Not enough permissions')
+        raise HTTPException(status_code=400, detail='Not enough permissions')
 
     session.delete(current_user)
     session.commit()
